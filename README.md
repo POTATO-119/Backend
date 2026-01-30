@@ -4,7 +4,7 @@
 ## 🛠 Backend Role & Responsibilities
 
 
-### 👩‍💻 : Auth & Community
+### 🐰 : Auth & Community
 
 | Category | Details |
 | :--- | :--- |
@@ -14,7 +14,7 @@
 
 <br>
 
-### 👨‍💻 : Shop & Economy
+### 👽 : Shop & Economy
 
 | Category | Details |
 | :--- | :--- |
