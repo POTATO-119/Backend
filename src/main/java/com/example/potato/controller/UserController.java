@@ -16,6 +16,7 @@ public class UserController {
     /**
      * 회원가입 API
      * [POST] /join
+     * 
      * @param dto 회원가입 요청 데이터 (아이디, 비밀번호)
      * @return 가입 성공 메시지
      */
