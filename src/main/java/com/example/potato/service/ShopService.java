@@ -35,8 +35,6 @@ public class ShopService {
         user.setSpoonAmount(user.getSpoonAmount() - item.getPrice());
 
         // 4. 인벤토리 추가_구매 이력 저장
-        // Inventory 엔티티에 User와 Item을 받는 user
-
         Inventory inventory = new Inventory();
         inventory.setUser(user);
         inventory.setItem(item);
