@@ -1,28 +1,40 @@
-🛠 Backend Role & Responsibilities
+# 🥔 POTATO PROJECT - Backend Team Roles
 
-1. 김혜인: 인증 및 커뮤니티 엔진
-User & Auth System:
-Spring Security와 JWT(JSON Web Token)를 결합한 보안 인증 체계 설계 및 구현
-사용자 경험 기반의 회원가입, 로그인 및 마이페이지 프로필 관리 API 구축
+<br>
 
-Community (Post) System:
-게시글의 CRUD(생성, 조회, 수정, 삭제) 핵심 로직 및 안정적인 데이터 트랜잭션 관리
-사용자 간 상호작용을 위한 게시글 좋아요 및 댓글 시스템 아키텍처 설계
+## 🛠 Backend Role & Responsibilities
 
-2. 박고운: 상점 경제 및 리소스 서빙
-Shop & Item System:
-아이템 데이터를 관리하는 MariaDB 기반 데이터베이스 구축
-프론트엔드 UI 시안에 최적화된 카테고리별 필터링 조회 API 개발
+---
 
-Inventory & Economy System:
-유저 포인트(Spoon) 소모 기반의 구매 시스템 및 데이터 무결성 검증 로직 구현
-보유 아이템 조회, 착용/해제 등 캐릭터 커스터마이징을 위한 인벤토리 엔진 설계
+### 👩‍💻 : Auth & Community
 
-Infrastructure & Collaboration:
-정적 리소스 매핑: 프론트엔드에서 즉시 호출 가능한 이미지 서빙 경로 구축
+| Category | Details |
+| :--- | :--- |
+| **Auth** | - Spring Security + **JWT** 기반 인증 시스템 구축 <br> - 회원가입/로그인 및 프로필 관리 API |
+| **Community** | - 게시글 CRUD(작성/조회/수정/삭제) 로직 설계 <br> - 댓글 시스템 및 좋아요 상호작용 기능 구현 |
+| **Setting** | - 프로젝트 초기 환경 설정 및 아키텍처 구조화 |
 
-🔗Backend Tech Stack
-Framework: Spring Boot
-Security: Spring Security, JWT
-Database: MariaDB, Spring Data JPA
-Documentation: Swagger UI 
+<br>
+
+### 👨‍💻 : Shop & Economy
+
+| Category | Details |
+| :--- | :--- |
+| **Shop API** | - 33종 아이템 데이터베이스(MariaDB) 구축 <br> - **카테고리별 필터링** 및 아이템 상세 조회 API 개발 |
+| **Economy** | - 유저 재화(Spoon) 소모 로직 및 **구매 시스템** 구현 <br> - 유저별 인벤토리 관리 및 아이템 장착 로직 설계 |
+| **Infra** | - **CORS 설정**: 프론트엔드 통신 허용 <br> - **이미지 서버**: 정적 리소스 매핑 및 서빙 환경 구축 |
+
+---
+
+### 🚀 Tech Stack
+![Java](https://img.shields.io/badge/Java-17-orange?style=flat-square&logo=java)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?style=flat-square&logo=springboot)
+![MariaDB](https://img.shields.io/badge/MariaDB-latest-blue?style=flat-square&logo=mariadb)
+![Swagger](https://img.shields.io/badge/Swagger-API%20Docs-85EA2D?style=flat-square&logo=swagger)
+
+---
+
+### 🔗 주요 API 명세 (Shop)
+* `GET /api/items` : 전체 아이템 목록
+* `GET /api/items/category/{category}` : 카테고리별 아이템 (HEADWEAR, OUTFIT 등)
+* `GET /images/{fileName}` : 아이템 이미지 리소스 서빙
