@@ -31,15 +31,16 @@
 
 ---
 
+### 🔗 주요 API 명세서 (Shop)
+* `GET /api/items` : 전체 아이템 목록
+* `GET /api/items/category/{category}` : 카테고리별 아이템 (HEADWEAR, OUTFIT 등)
+* `GET /images/{fileName}` : 아이템 이미지 리소스 서빙
+  
+---
+
 ### 🚀 Tech Stack
 ![Java](https://img.shields.io/badge/Java-17-orange?style=flat-square&logo=java)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?style=flat-square&logo=springboot)
 ![MariaDB](https://img.shields.io/badge/MariaDB-latest-blue?style=flat-square&logo=mariadb)
 ![Swagger](https://img.shields.io/badge/Swagger-API%20Docs-85EA2D?style=flat-square&logo=swagger)
 
----
-
-### 🔗 주요 API 명세서 (Shop)
-* `GET /api/items` : 전체 아이템 목록
-* `GET /api/items/category/{category}` : 카테고리별 아이템 (HEADWEAR, OUTFIT 등)
-* `GET /images/{fileName}` : 아이템 이미지 리소스 서빙
