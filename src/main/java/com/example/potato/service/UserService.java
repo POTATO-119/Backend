@@ -1,6 +1,7 @@
 package com.example.potato.service;
 
 import com.example.potato.dto.UserJoinDto;
+import com.example.potato.dto.UserLoginDto;
 import com.example.potato.entity.User;
 import com.example.potato.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -38,4 +39,28 @@ public class UserService {
         // 3. DB 저장
         userRepository.save(user);
     }
+
+
+    /**
+     * 로그인 로직
+     * 1. 아이디로 유저 찾기
+     * 2. 비밀번호 일치 여부 확인
+     * 3. 아이디 검색 → 비밀번호 필터링 → 성공 시 User 반환 / 실패 시 null 반환
+     * */
+    public User login(UserLoginDto dto){
+        return userRepository.findByLoginId(dto.getLoginId())
+                .filter(user -> user.getPassword().equals(dto.getPassword()))
+                .orElse(null);
+    }
+
+
+    /**
+     * 내 정보 조회
+     * loginId로 유저 엔티티 전체를 가져옴
+     */
+    public User getUserInfo(String loginId) {
+        return userRepository.findByLoginId(loginId)
+                .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다."));
+    }
+
 }
