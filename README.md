@@ -1,10 +1,9 @@
-# 🥔 POTATO PROJECT - Backend Team Roles
+# 🥔 POTATO PROJECT
 
 <br>
 
 ## 🛠 Backend Role & Responsibilities
 
----
 
 ### 👩‍💻 : Auth & Community
 
