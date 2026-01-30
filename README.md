@@ -1,6 +1,5 @@
 # 🥔 POTATO PROJECT
 
-<br>
 
 ## 🛠 Backend Role & Responsibilities
 
