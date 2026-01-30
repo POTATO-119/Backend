@@ -32,7 +32,7 @@
 
 ---
 
-### 🔗 주요 API 명세 (Shop)
+### 🔗 주요 API 명세서 (Shop)
 * `GET /api/items` : 전체 아이템 목록
 * `GET /api/items/category/{category}` : 카테고리별 아이템 (HEADWEAR, OUTFIT 등)
 * `GET /images/{fileName}` : 아이템 이미지 리소스 서빙
