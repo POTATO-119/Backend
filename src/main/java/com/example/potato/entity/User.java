@@ -34,4 +34,12 @@ public class User {
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
+
+    public int getSpoon() {
+        return this.spoonAmount != null ? this.spoonAmount : 0;
+    }
+
+    public void setSpoon(int spoon) {
+        this.spoonAmount = spoon;
+    }
 }
