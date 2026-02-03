@@ -1,10 +1,10 @@
 # 🥔 POTATO PROJECT
 
 
-## 🛠 Backend Role & Responsibilities
+### 🛠 Backend Role & Responsibilities
 
 
-### 🐰 : Auth & Community
+## 🐰 : Auth & Community
 
 | Category | Details |
 | :--- | :--- |
@@ -14,7 +14,7 @@
 
 ---
 
-### 🔗 주요 API 명세서 (User)
+## 🔗 주요 API 명세서 (User)
 * `POST /api/users/join` : 회원가입 (초기 스푼 및 레벨 설정)
 * `POST /api/users/login` : 로그인 및 사용자 인증
 * `GET /api/users/info/{loginId}` : 내 정보 조회 (XP, Spoon 데이터 포함)
@@ -31,7 +31,7 @@
 
 ---
 
-### 🔗 주요 API 명세서 (Shop)
+## 🔗 주요 API 명세서 (Shop)
 * `GET /api/items` : 전체 아이템 목록 및 카테고리별 필터링 조회
 * `POST /api/items/purchase` : 아이템 구매 및 재화(Spoon) 차감
 * `GET /api/items/inventory/{userId}` : 유저별 인벤토리(보유 아이템) 조회
