@@ -32,10 +32,8 @@
 ---
 
 ### 🔗 주요 API 명세서 (Shop)
-* `GET /api/items` : 전체 아이템 목록
-* `GET /api/items/category/{category}` : 카테고리별 아이템 (HEADWEAR, OUTFIT 등)
-* `GET /images/{fileName}` : 아이템 이미지 리소스 서빙
-* `POST /api/items/purchase` : 아이템 구매 및 재화 차감
+* `GET /api/items` : 전체 아이템 목록 및 카테고리별 필터링 조회
+* `POST /api/items/purchase` : 아이템 구매 및 재화(Spoon) 차감
 * `GET /api/items/inventory/{userId}` : 유저별 인벤토리(보유 아이템) 조회
 * `POST /api/items/inventory/equip` : 아이템 장착 및 자동 교체 로직 실행
   
