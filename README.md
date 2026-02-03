@@ -12,7 +12,7 @@
 | **Community** | - 게시글 CRUD(작성/조회/수정/삭제) 기능 구현 <br> - 사용자별 활동 이력 관리 및 작성 글 모아보기 |
 | **Setting** | - 프로젝트 초기 환경 설정 및 공통 응답 구조화 |
 
----
+
 
 ## 🔗 주요 API 명세서 (User)
 * `POST /api/users/join` : 회원가입 (초기 스푼 및 레벨 설정)
@@ -20,6 +20,7 @@
 * `GET /api/users/info/{loginId}` : 내 정보 조회 (XP, Spoon 데이터 포함)
 
 <br>
+---
 
 ### 👽 : Shop & Economy
 
