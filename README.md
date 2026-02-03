@@ -26,8 +26,8 @@
 | Category | Details |
 | :--- | :--- |
 | **Shop API** | - 상점 아이템 데이터베이스(MariaDB) 구축 및 ERD 설계 <br> - 자산 관리: 유저 재화(Spoon) 관리 및 상점 연동 인터페이스 |
-| **Economy** | - 트랜잭션(`@Transactional`) 기반 유저 재화(Spoon) 차감 및 구매 시스템 구현 <br> - 유저별 인벤토리 관리 및 중복 구매 방지 예외 처리 적용 <br> - 동일 카테고리 내 아이템 자동 교체(Exclusive Equip) 장착 로직 설계 |
-| **Infra** | - CORS 설정: 프론트엔드-백엔드 리소스 공유 및 통신 허용 <br> - 이미지 서버: 정적 리소스 매핑을 통한 아이템 이미지 실시간 서빙 환경 구축 <br> - Swagger UI: API 명세 표준화 및 테스트 환경 구축 |
+| **Economy** | - 트랜잭션(`@Transactional`) 기반 유저 재화(Spoon) 차감 및 구매 시스템 구현 <br> - 유저별 인벤토리 관리 및 중복 구매 방지 예외 처리 적용 |
+| **Infra** | - CORS 설정: 프론트엔드-백엔드 리소스 공유 및 통신 허용 <br> - Swagger UI: API 명세 표준화 및 테스트 환경 구축 |
 
 ---
 
