@@ -4,6 +4,7 @@ import com.example.potato.dto.UserJoinDto;
 import com.example.potato.dto.UserLoginDto;
 import com.example.potato.entity.User;
 import com.example.potato.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +41,14 @@ public class UserService {
         userRepository.save(user);
     }
 
+    /**
+     * 아이디 중복 체크 API용
+     * 존재하면 true, 없으면 false 반환
+     */
+    public boolean checkLoginIdDuplicate(String loginId) {
+        return userRepository.existsByLoginId(loginId);
+    }
+
 
     /**
      * 로그인 로직
@@ -62,5 +71,28 @@ public class UserService {
         return userRepository.findByLoginId(loginId)
                 .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다."));
     }
+
+    /**
+     * 회원 정보 수정 (비밀번호 변경)
+     */
+    @Transactional
+    public void updateUserInfo(String loginId, String newPassword) {
+        User user = userRepository.findByLoginId(loginId)
+                .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다."));
+
+        user.setPassword(newPassword); // 감자 유저의 비밀번호 변경!
+    }
+
+    /**
+     * 회원 탈퇴
+     */
+    @Transactional
+    public void deleteUser(String loginId) {
+        User user = userRepository.findByLoginId(loginId)
+                .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다."));
+
+        userRepository.delete(user); // DB에서 유저 삭제 🥔👋
+    }
+
 
 }

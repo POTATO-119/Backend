@@ -20,7 +20,7 @@ public class UserController {
     /**
      * 회원가입 API
      * [POST] /join
-     * 
+     *
      * @param dto 회원가입 요청 데이터 (아이디, 비밀번호)
      * @return 가입 성공 메시지
      */
@@ -64,4 +64,36 @@ public class UserController {
         return userService.getUserInfo(loginId);
     }
 
+    /**
+     * 아이디 중복 체크 API
+     * [GET] /api/users/check-id
+     */
+    @Operation(summary = "아이디 중복 체크", description = "이미 존재하는 아이디인지 확인합니다.")
+    @GetMapping("/check-id")
+    public boolean checkId(@RequestParam("loginId") String loginId) {
+        // 서비스의 중복 체크 로직 호출
+        return userService.checkLoginIdDuplicate(loginId);
+    }
+
+    /**
+     * 회원 정보 수정 API
+     * [PATCH] /api/users/update
+     */
+    @Operation(summary = "회원 정보 수정", description = "비밀번호 등 회원 정보를 수정합니다.")
+    @PatchMapping("/update")
+    public String update(@RequestParam("loginId") String loginId, @RequestParam("newPassword") String newPassword) {
+        userService.updateUserInfo(loginId, newPassword);
+        return "정보 수정 완료!";
+    }
+
+    /**
+     * 회원 탈퇴 API
+     * [DELETE] /api/users/delete
+     */
+    @Operation(summary = "회원 탈퇴", description = "계정을 삭제합니다.")
+    @DeleteMapping("/delete")
+    public String delete(@RequestParam("loginId") String loginId) {
+        userService.deleteUser(loginId);
+        return "회원 탈퇴가 완료되었습니다.🥔";
+    }
 }
