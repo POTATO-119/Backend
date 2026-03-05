@@ -96,4 +96,18 @@ public class UserController {
         userService.deleteUser(loginId);
         return "회원 탈퇴가 완료되었습니다.🥔";
     }
+
+    /**
+     * 요리 인증 및 보상 지급 API
+     * [POST] /certify
+     */
+    @Operation(summary = "요리 인증 (경험치/스푼 획득)", description = "요리를 인증하고 레시피 유무(hasRecipe)에 따라 경험치와 스푼을 차등 지급합니다.")
+    @PostMapping("/certify")
+    public String certifyRecipe(@RequestParam("loginId") String loginId, @RequestParam("hasRecipe") boolean hasRecipe) {
+
+        // 서비스의 경험치 및 재화 지급 로직 호출
+        userService.addExperienceAndReward(loginId, hasRecipe);
+
+        return "요리 인증 완료! 경험치와 스푼이 지급되었습니다. 🥔✨";
+    }
 }
