@@ -15,8 +15,8 @@ POTATO는 자취생이 직접 요리한 식사를 인증하고, 보상으로 받
 
 ## 📦 저장소
 
-- [Backend](https://github.com/POTATO-119/Backend): Spring Boot 기반 API 서버
-- [Frontend](https://github.com/POTATO-119/Frontend): React와 Vite 기반 웹 클라이언트
+- [Backend](https://github.com/POTATO-119/potato-back): Spring Boot 기반 API 서버
+- [Frontend](https://github.com/POTATO-119/potato-front): React와 Vite 기반 웹 클라이언트
 
 ## 📁 폴더 구조
 
@@ -53,8 +53,8 @@ POTATO-119/
 ### 1. 저장소 클론
 
 ```bash
-git clone https://github.com/POTATO-119/Backend.git potato-backend
-git clone https://github.com/POTATO-119/Frontend.git potato-frontend
+git clone https://github.com/POTATO-119/potato-back.git potato-backend
+git clone https://github.com/POTATO-119/potato-front.git potato-frontend
 ```
 
 ### 2. 실행 환경 준비
