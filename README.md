@@ -1,43 +1,143 @@
-# 🥔 POTATO PROJECT
+# 🥔 POTATO
 
+POTATO는 자취생이 직접 요리한 식사를 인증하고, 보상으로 받은 경험치와 재화 `스푼`으로 캐릭터를 성장시키는 식생활 습관 형성 서비스입니다.
 
-### 🛠 Backend Role & Responsibilities
----
+## 🧭 시스템 작동 방식
 
-## 🐰 Auth & Community
+1. 사용자가 직접 요리한 식사를 인증합니다.
+2. 인증 결과에 따라 경험치와 서비스 재화인 스푼을 지급합니다.
+3. 사용자는 스푼으로 상점 아이템을 구매합니다.
+4. 구매한 아이템을 인벤토리에서 장착해 캐릭터를 성장시킵니다.
 
-| 분류 | 상세 내용 |
-| :--- | :--- |
-| **User Auth** | • 회원가입/로그인 및 유저 프로필 관리 API <br> • 성장 로직: 유저 경험치(XP) 및 레벨(Level) 데이터 처리 |
-| **Community** | • 게시글 CRUD(작성/조회/수정/삭제) 기능 구현 <br> • 사용자별 활동 이력 관리 및 작성 글 모아보기 |
-| **Base Setup** | • 프로젝트 초기 환경 설정 및 공통 응답(Global Response) 구조화 |
+```text
+요리 인증 → 경험치·스푼 지급 → 아이템 구매 → 인벤토리 저장 → 캐릭터 장착
+```
 
-### 🔗 주요 API 명세 (User)
-- `POST /api/users/join` : 회원가입 (초기 스푼 및 레벨 설정)
-- `POST /api/users/login` : 로그인 및 사용자 인증
-- `GET /api/users/info/{loginId}` : 내 정보 조회 (XP, Spoon 데이터 포함)
+## 📦 저장소
 
----
+- [Backend](https://github.com/POTATO-119/Backend): Spring Boot 기반 API 서버
+- [Frontend](https://github.com/POTATO-119/Frontend): React와 Vite 기반 웹 클라이언트
 
-## 👽 Shop & Economy
+## 📁 폴더 구조
 
-| 분류 | 상세 내용 |
-| :--- | :--- |
-| **Shop API** | • 상점 아이템 DB 구축 및 ERD 설계 <br> • 자산 관리: 유저 재화(Spoon) 관리 및 상점 연동 인터페이스 |
-| **Economy** | • `@Transactional` 기반 재화 차감 및 구매 시스템 구현 <br> • 인벤토리 관리 및 중복 구매 방지 예외 처리 적용 |
-| **Infrastructure** | • CORS 설정 및 Swagger UI를 통한 API 명세 표준화 |
+```text
+POTATO-119/
+├── Backend/
+│   ├── src/main/java/com/example/potato/
+│   │   ├── controller/      # HTTP 요청 및 응답 처리
+│   │   ├── service/         # 구매, 인벤토리 등 비즈니스 규칙
+│   │   ├── repository/      # 데이터베이스 접근
+│   │   ├── entity/          # 사용자, 아이템, 인벤토리 모델
+│   │   ├── dto/             # API 요청·응답 데이터
+│   │   └── config/          # CORS 및 애플리케이션 설정
+│   ├── src/main/resources/  # DB 및 Spring Boot 설정
+│   └── src/test/            # 백엔드 테스트
+└── Frontend/
+    ├── src/pages/           # 로그인, 회원가입, 홈 화면
+    ├── src/features/        # 인증 등 도메인별 기능
+    ├── src/components/      # 공통 및 화면 구성 컴포넌트
+    ├── src/lib/             # Axios API 클라이언트
+    ├── src/router/          # 화면 경로 설정
+    ├── src/store/           # 클라이언트 상태 관리
+    └── src/assets/          # 이미지와 정적 리소스
+```
 
-### 🔗 주요 API 명세 (Shop)
-- `GET /api/items` : 전체 아이템 목록 및 카테고리별 필터링 조회
-- `POST /api/items/purchase` : 아이템 구매 및 재화(Spoon) 차감
-- `GET /api/items/inventory/{userId}` : 유저별 인벤토리 조회
-- `POST /api/items/inventory/equip` : 아이템 장착 및 자동 교체 로직
+## 🛠 기술 스택
 
----
+- **Backend:** Java 21, Spring Boot 4, Spring Data JPA, Gradle
+- **Database:** MySQL
+- **Frontend:** React 18, TypeScript, Vite
 
-### 🚀 Tech Stack
-![Java](https://img.shields.io/badge/Java-21-orange?style=flat-square&logo=java)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.1-brightgreen?style=flat-square&logo=springboot)
-![MariaDB](https://img.shields.io/badge/MariaDB-latest-blue?style=flat-square&logo=mariadb)
-![Swagger](https://img.shields.io/badge/Swagger-API%20Docs-85EA2D?style=flat-square&logo=swagger)
+## 🚀 로컬 실행 가이드
 
+### 1. 저장소 클론
+
+```bash
+git clone https://github.com/POTATO-119/Backend.git potato-backend
+git clone https://github.com/POTATO-119/Frontend.git potato-frontend
+```
+
+### 2. 실행 환경 준비
+
+- Java 21
+- MySQL 8.x
+- Node.js 20 이상
+- npm
+
+### 3. 데이터베이스 및 환경 변수 설정
+
+MySQL에서 데이터베이스를 생성합니다.
+
+```sql
+CREATE DATABASE potato CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+백엔드 실행 터미널에 데이터베이스 접속 정보를 설정합니다. Spring Boot 환경 변수가 저장소의 기본 설정보다 우선 적용됩니다.
+
+```bash
+export SPRING_DATASOURCE_URL="jdbc:mysql://localhost:3306/potato?serverTimezone=Asia/Seoul&characterEncoding=UTF-8"
+export SPRING_DATASOURCE_USERNAME="root"
+export SPRING_DATASOURCE_PASSWORD="your-mysql-password"
+```
+
+프론트엔드에서는 예제 파일을 복사한 뒤 로컬 API 주소를 설정합니다.
+
+```bash
+cd potato-frontend
+cp .env.example .env.local
+```
+
+`.env.local`의 값을 다음과 같이 변경합니다.
+
+```dotenv
+VITE_API_BASE_URL=http://localhost:8080
+VITE_API_TIMEOUT=5000
+VITE_APP_NAME=POTATO
+VITE_APP_ENV=development
+```
+
+### 4. 백엔드 실행
+
+```bash
+cd potato-backend
+bash ./gradlew bootRun
+```
+
+서버가 실행되면 다음 주소에서 API 문서를 확인할 수 있습니다.
+
+- Swagger UI: <http://localhost:8080/swagger-ui/index.html>
+
+### 5. 프론트엔드 의존성 설치 및 실행
+
+새 터미널에서 다음 명령을 실행합니다.
+
+```bash
+cd potato-frontend
+npm install
+npm run dev
+```
+
+- Frontend: <http://localhost:5173>
+
+### 6. 실행 확인
+
+- 백엔드 Swagger UI가 열리는지 확인합니다.
+- 프론트엔드 로그인 화면이 표시되는지 확인합니다.
+- 회원가입 또는 로그인 요청이 `http://localhost:8080`으로 전달되는지 브라우저 개발자 도구에서 확인합니다.
+- 상점 조회 → 아이템 구매 → 인벤토리 조회 → 아이템 장착 순서로 데이터가 연결되는지 확인합니다.
+
+## 🔐 구매 데이터 정합성
+
+- 구매 전에 사용자·아이템 존재 여부, 중복 보유 여부, 보유 재화를 검증합니다.
+- 재화 차감과 인벤토리 생성을 하나의 트랜잭션으로 처리합니다.
+- 구매 실패 시 재화만 차감되거나 아이템만 지급되는 부분 반영을 방지합니다.
+- 사용자 소유권을 확인하고 카테고리별 장착 아이템을 하나로 유지합니다.
+
+## 🔗 주요 API
+
+- `POST /api/users/join`: 회원가입
+- `POST /api/users/login`: 로그인
+- `GET /api/items`: 전체·카테고리별 아이템 조회
+- `POST /api/items/purchase`: 아이템 구매 및 재화 차감
+- `GET /api/items/inventory/{userId}`: 사용자 인벤토리 조회
+- `POST /api/items/inventory/equip`: 아이템 장착 및 기존 아이템 자동 해제
