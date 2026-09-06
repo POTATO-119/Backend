@@ -43,7 +43,7 @@ public class ItemService {
     public String purchaseItem(PurchaseRequest request) {
 
         // 1. 유저와 아이템 정보 조회
-        User user = userRepository.findById(request.getUserId())
+        User user = userRepository.findByIdForUpdate(request.getUserId())
                 .orElseThrow(() -> new RuntimeException("유저를 찾을 수 없습니다."));
         Item item = itemRepository.findById(request.getItemId())
                 .orElseThrow(() -> new RuntimeException("아이템을 찾을 수 없습니다."));
