@@ -4,6 +4,7 @@ import com.example.potato.dto.PurchaseRequest;
 import com.example.potato.entity.Inventory;
 import com.example.potato.entity.Item;
 import com.example.potato.service.ItemService;
+import com.example.potato.service.PurchaseLockService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,7 @@ import java.util.List;
 public class ItemController {
 
     private final ItemService itemService;
+    private final PurchaseLockService purchaseLockService;
 
     // 1. 전체 아이템 목록 조회
     @GetMapping
@@ -50,7 +52,7 @@ public class ItemController {
     public ResponseEntity<String> purchaseItem(@RequestBody PurchaseRequest request) {
         try {
             // ItemService에 작성한 구매 로직 호출
-            String result = itemService.purchaseItem(request);
+            String result = purchaseLockService.purchaseItem(request);
 
             if (result.contains("완료")) {
                 return ResponseEntity.ok(result);
