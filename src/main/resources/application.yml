@@ -14,3 +14,6 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+redisson:
+  address: "redis://localhost:6379"
